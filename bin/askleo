@@ -8,7 +8,7 @@ async function askLeo(prompt) {
 }
 
 askLeo(process.argv.slice(2).join(' ')).catch( (e) => {
-  console.error("Problem executing completion: " + e.message.slice(-200))
+  console.error("Problem executing completion: " + e.message.slice(-200) + " Check environment variable OPENAI_API_KEY")
   process.exit(1)
 })
 
