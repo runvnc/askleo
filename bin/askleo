@@ -1,0 +1,16 @@
+#!/bin/env node 
+
+async function askLeo(prompt) {
+  const askDavinci = (await import('askdavinci')).default
+
+  let [answer, usage] = await askDavinci(prompt)
+  console.log(answer)  
+}
+
+askLeo(process.argv.slice(2).join(' ')).catch( (e) => {
+  console.error("Problem executing completion: " + e.message.slice(-200))
+  process.exit(1)
+})
+
+
+

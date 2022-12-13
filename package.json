@@ -1,0 +1,15 @@
+{
+  "name": "askleo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/askleo",
+  "bin": {
+    "askleo": "./bin/askleo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "askdavinci": "^1.0.0"
+  }
+}
