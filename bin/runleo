@@ -1,0 +1,22 @@
+#!/bin/env node 
+
+const exec_ = require('child_process').exec
+const exec = require('util').promisify(exec_)
+
+async function runLeo(prompt) {
+  const askDavinci = (await import('askdavinci')).default
+  prompt = 'For the following request, output the exact command only, no explanatory text:\n'+prompt+'\n'
+  let [answer, usage] = await askDavinci(prompt)
+  console.log('> ' + answer)
+  let {stdout, stderr} = await exec(answer)
+  console.log(stdout)
+  if (stderr) console.error(stderr)  
+}
+
+runLeo(process.argv.slice(2).join(' ')).catch( (e) => {
+  console.error("Problem executing completion: " + e.message.slice(-200) + " Check environment variable OPENAI_API_KEY")
+  process.exit(1)
+})
+
+
+

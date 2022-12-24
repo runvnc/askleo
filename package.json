@@ -1,10 +1,11 @@
 {
   "name": "askleo",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "",
   "main": "bin/askleo",
   "bin": {
-    "askleo": "./bin/askleo"
+    "askleo": "./bin/askleo",
+    "runleo": "./bin/runleo"
   },
   "keywords": [],
   "author": "",
